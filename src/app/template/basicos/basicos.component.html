@@ -1,1 +1,88 @@
-<p>basicos works!</p>
+
+
+<h2>Template: Básicos</h2>
+
+<hr>
+
+ 
+<div class="row">
+   <div class="col">
+
+     <form (ngSubmit)="guardar(miFormulario)" 
+           autocomplete=off
+           #miFormulario="ngForm">
+
+      <!---Campo de produto-->
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label">Produtos</label>
+          <div class="col-sm-9">
+            <input type="text"
+                   ngModel 
+                   name="produto"
+                   class="form-control"
+                   placeholder="Nombre del produto">
+              <span class="form-text text-danger"> Deve ter pelo menos 3 letras</span>     
+          </div>
+        </div>
+
+
+        <!---Campo de Preco-->
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label">Preço</label>
+          <div class="col-sm-9">
+            <input type="number" 
+                   class="form-control" 
+                   ngModel 
+                   name="preco"
+                   required
+                   placeholder="Preço do produto">
+
+          </div>
+        </div>
+
+
+        <!---Campo de Estoque-->
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label">Estoque</label>
+          <div class="col-sm-9">
+            <input type="number" 
+                   class="form-control"
+                   ngModel
+                   name="estoque"
+                   required
+                   placeholder="Estoque do produto">
+        
+          </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col">
+               <button type="submit"
+                       class="btn btn-primary">
+                 Guardar
+               </button>
+            </div>
+        </div>
+
+
+
+     </form>
+
+   </div>
+</div>
+
+
+
+<div class="row">
+   <div class="col">
+
+
+     <span>Valid</span>
+     <pre>{{ miFormulario.valid }}</pre>
+     
+     <span>Value</span> 
+    <pre>{{ miFormulario.value | json }}</pre>
+
+   </div>
+</div>
