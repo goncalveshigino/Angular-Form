@@ -47,6 +47,11 @@
                    required
                    placeholder="Preço do produto">
 
+              <span class="form-text text-danger"
+                    *ngIf="validPrice()">
+                 O preço deve ser maior que zero
+              </span> 
+
           </div>
         </div>
 
@@ -69,6 +74,7 @@
         <div class="row">
             <div class="col">
                <button type="submit"
+                       [disabled]="miFormulario.invalid"
                        class="btn btn-primary">
                  Guardar
                </button>

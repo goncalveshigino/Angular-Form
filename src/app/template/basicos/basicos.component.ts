@@ -20,6 +20,11 @@ export class BasicosComponent  {
            this. miFormulario?.controls.produto?.touched
   }
 
+  validPrice(): boolean {
+    return this.miFormulario?.controls.preco?.touched &&
+           this.miFormulario?.controls.preco?.value < 0;
+  }
+
   guardar() {
     console.log( this.miFormulario );
   }
