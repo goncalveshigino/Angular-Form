@@ -26,7 +26,7 @@ export class BasicosComponent  {
   }
 
   guardar() {
-    console.log( this.miFormulario );
+    console.log(this.miFormulario);
   }
 
 }
