@@ -8,21 +8,31 @@
 <div class="row">
    <div class="col">
 
-     <form (ngSubmit)="guardar(miFormulario)" 
+     <form (ngSubmit)="guardar()" 
            autocomplete=off
            #miFormulario="ngForm">
 
       <!---Campo de produto-->
         <div class="mb-3 row">
-          <label class="col-sm-3 col-form-label">Produtos</label>
+
+          <label class="col-sm-3 col-form-label">Produtos*</label>
           <div class="col-sm-9">
+
             <input type="text"
                    ngModel 
                    name="produto"
                    class="form-control"
-                   placeholder="Nombre del produto">
-              <span class="form-text text-danger"> Deve ter pelo menos 3 letras</span>     
+                   placeholder="Nombre del produto"
+                   required
+                   minlength="3"
+            >
+
+              <span class="form-text text-danger"
+                    *ngIf="validName()">
+                 Deve ter pelo menos 3 letras
+              </span>     
           </div>
+
         </div>
 
 
@@ -79,7 +89,13 @@
 
 
      <span>Valid</span>
-     <pre>{{ miFormulario.valid }}</pre>
+      <pre>{{ miFormulario.valid }}</pre>
+
+     <span>Pristine</span>
+      <pre>{{ miFormulario.pristine }}</pre>
+
+     <span>Touched</span>
+      <pre>{{ miFormulario.touched }}</pre>
      
      <span>Value</span> 
     <pre>{{ miFormulario.value | json }}</pre>
