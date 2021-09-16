@@ -13,6 +13,11 @@ export class BasicosComponent  {
 
   constructor() { }
 
+  initForm = {
+    produto: 'RXT 4080ti',
+    preco: 10,
+    estoque: 10
+  }
 
   validName(): boolean {
 
@@ -26,7 +31,13 @@ export class BasicosComponent  {
   }
 
   guardar() {
-    console.log(this.miFormulario);
+    // console.log(this.miFormulario);
+    console.log('Correto');
+    
+    this.miFormulario.resetForm({
+      preco: 0,
+      estoque: 0
+    });
   }
 
 }
