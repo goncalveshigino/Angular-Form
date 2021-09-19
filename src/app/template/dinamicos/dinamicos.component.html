@@ -14,7 +14,7 @@
          <label class="col-sm-3 col-form-label">Nome</label>
          <div class="col-sm-9">
              <input type="text" 
-                    ngModel
+                    [ngModel]="pessoa.nome"
                     name="nome"
                     placeholder="Seu nome completo"
                     required
@@ -33,7 +33,7 @@
 
 <!--Adicionar Favorito-->
     <div class="mb-3 row">
-         <label class="col-sm-3 col-form-label">Nome</label>
+         <label class="col-sm-3 col-form-label">Adicionar</label>
          <div class="col-sm-9">
         
             <div class="input-group">
@@ -57,7 +57,21 @@
          <label class="col-sm-3 col-form-label">Favoritos</label>
          <div class="col-sm-9">
 
-             <input class="form-control mb-1"> 
+           <div class="input-group mb-1"
+                *ngFor="let jogo of pessoa.favoritos; let i = index">
+
+                 <input 
+                    [(ngModel)]="jogo.nome"
+                    name="favorito{{ i }}"
+                    class="form-control"
+                    required
+                    > 
+                    <button class="btn btn-outline-danger" 
+                            type="button"
+                            (click)="eliminar(i)">
+                        Eliminar
+                    </button>
+           </div>
              
 
          </div>
@@ -78,3 +92,8 @@
 
 
 </form>
+
+
+
+ <span>Pessoa</span>
+ <pre>{{ pessoa | json }}</pre>

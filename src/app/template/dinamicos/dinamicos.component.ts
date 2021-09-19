@@ -17,19 +17,17 @@ interface Favorito{
   styles: [
   ]
 })
-export class DinamicosComponent implements OnInit {
+export class DinamicosComponent  {
 
   @ViewChild('miFormulario') miFormulario!: NgForm;
 
-
-
-
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  pessoa: Pessoa = {
+    nome: 'Gonçalves',
+    favoritos: [
+      { id: 1, nome: 'Fifa 2021' },
+      { id: 2, nome: 'DeathStranding'}
+    ]
+ }
 
   ValidName(): boolean {
 
@@ -39,6 +37,10 @@ export class DinamicosComponent implements OnInit {
 
   salvar() {
     console.log('Formulario Posteado')
+  }
+
+  eliminar(index: number) {
+    this.pessoa.favoritos.splice(index, 1);
   }
 
 }
