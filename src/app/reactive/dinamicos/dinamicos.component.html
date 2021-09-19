@@ -1,1 +1,90 @@
-<p>dinamicos works!</p>
+
+
+<h2>Template: <small>Dinámicos</small></h2> 
+<hr>
+
+
+
+<form (ngSubmit)="salvar()"
+      [formGroup]="miFormulario"
+      autocomplete=off
+       >
+
+    <div class="mb-3 row">
+         <label class="col-sm-3 col-form-label">Nome</label>
+         <div class="col-sm-9">
+             <input type="text" 
+                    placeholder="Seu nome completo"
+                    formControlName="nome"
+                    class="form-control">
+
+                <span class="form-text text-danger"
+                      *ngIf="validarCampos('nome')">
+                     O campo é obrigatório
+                </span>
+  
+         </div>
+    </div>
+
+
+
+<!--Adicionar Favorito-->
+    <div class="mb-3 row">
+         <label class="col-sm-3 col-form-label">Adicionar</label>
+         <div class="col-sm-9">
+        
+            <div class="input-group">
+                 <input class="form-control"
+                        placeholder="Adicionar Favorito">
+
+                    <button class="btn btn-outline-primary"
+                            type="button">
+                         Adicionar
+                    </button>    
+            </div>
+            
+         </div>
+    </div>
+
+
+
+    <!--Lista de jogos Favoritos-->
+
+    <div class="mb-3 row">
+         <label class="col-sm-3 col-form-label">Favoritos</label>
+         <div class="col-sm-9">
+
+           <div class="input-group mb-1">
+
+                 <input 
+                    class="form-control"
+                    required
+                    > 
+                    <button class="btn btn-outline-danger" 
+                            type="button">
+                        Eliminar
+                    </button>
+           </div>
+             
+
+         </div>
+    </div>
+
+
+     <div class="row">
+         <div class="col-sm-12">
+             <button type="submit"
+                     class="btn btn-primary float-end">
+                Salvar
+             </button>
+         </div>
+    </div>
+
+
+
+</form>
+
+
+
+ <!-- <span>Pessoa</span>
+ <pre>{{ pessoa | json }}</pre> -->

@@ -11,7 +11,7 @@ const routes: Routes = [
     children: [
       { path: 'basicos', component: BasicosComponent },
       { path: 'dinamicos', component: DinamicosComponent },
-      { path: 'Switches', component: SwitchesComponent },
+      { path: 'switches', component: SwitchesComponent },
       { path:'**', redirectTo: 'basicos'}
     ]
   }
