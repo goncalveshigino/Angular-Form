@@ -33,3 +33,19 @@
 </ul>
 
 
+<h2 class="mt-6">Validacoes</h2> 
+<hr>
+
+
+
+
+<ul class="list-group">
+  
+    <li *ngFor="let item of validatorMenu"
+         class="list-group-item"
+         routerLinkActive="active"
+         [routerLink]="item.router">
+        {{ item.text }}
+    </li>
+
+</ul>

@@ -58,6 +58,21 @@ export class SidemenuComponent  {
   ];
 
 
+  validatorMenu: MenuItem[] = [
+
+    {
+      text: 'Register',
+      router: './auth/register'
+    },
+    
+    {
+      text: 'Login',
+      router: './auth/login'
+    }
+
+  ];
+
+
 
 
 }
