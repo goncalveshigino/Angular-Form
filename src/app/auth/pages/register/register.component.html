@@ -58,7 +58,13 @@
 
                 <input type="text" 
                        class="form-control" 
+                       formControlName="username"
                        placeholder="Username">
+
+                       <span class="form-text text-danger"
+                             *ngIf="validarCampos('username')">
+                         O username nao pode ser strider
+                       </span>
 
             </div>
 
@@ -118,3 +124,6 @@
 
 <h5>Email</h5>
 <pre>{{ miFormulario.controls.email.errors | json }}</pre>
+
+<h5>Username</h5>
+<pre>{{ miFormulario.controls.username.errors | json }}</pre>

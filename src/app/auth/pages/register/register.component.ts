@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -13,9 +13,25 @@ export class RegisterComponent implements OnInit {
   nombreApelidoPattern: string = '([a-zA-Z]+) ([a-zA-Z]+)';
   emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
 
+  noPuedeSerStrider(control: FormControl) {
+    
+    const valor: string = control.value?.trim().toLowerCase();
+
+    if (valor === 'strider') {
+      return {
+        noStrider: true
+      }
+    }
+     console.log( valor)
+    return null;
+
+  }
+
+
   miFormulario: FormGroup = this.fb.group({
     nombre: ['', [Validators.required, Validators.pattern(this.nombreApelidoPattern)]],
-    email: ['', [Validators.required, Validators.pattern( this.emailPattern)]]
+    email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
+    username: ['', [Validators.required, this.noPuedeSerStrider]]
   });
 
 
@@ -33,7 +49,6 @@ export class RegisterComponent implements OnInit {
     
     console.log(this.miFormulario.value);
 
-
     this.miFormulario.markAllAsTouched();
 
   }
@@ -42,7 +57,8 @@ export class RegisterComponent implements OnInit {
     
     this.miFormulario.reset({
       nombre: 'Goncalves Higino',
-      email: 'test1@test.com'
+      email: 'test1@test.com',
+      username: 'goncalves_higino'
     })
   }
 
