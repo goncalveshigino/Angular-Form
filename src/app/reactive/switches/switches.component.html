@@ -1,1 +1,103 @@
-<p>switches works!</p>
+
+<h2>Reactive: Switches</h2>
+<hr>
+
+<form [formGroup]="miFormulario" (submit)="guardar()">
+
+    <div class="row mb-3">
+     <label class="col-sm-3 col-form-label">Género</label>
+     <div class="col-sm-9">
+
+        <div class="form-check">
+            <input type="radio"
+                   value="M"
+                   formControlName="genero"
+                   class="form-check-input" 
+                   id="radioMasculino">
+            <label class="form-check-label" for="radioMasculino">Masculino</label>
+        </div>
+
+        <div class="form-check">
+            <input type="radio"
+                   value="F"
+                   class="form-check-input"
+                   formControlName="genero"
+                   id="radioFemenino">
+            <label class="form-check-label" for="radioFemenino">Femenino</label>
+        </div>
+
+     </div>
+
+    </div>
+
+    <!--Switches--> 
+     <div class="row mb-3">
+      <label class="col-sm-3 col-form-label">Notificaciones</label>
+       <div class="col-sm-9">
+         
+          <div class="form-check form-switch mt-2">
+              <input 
+                     class="form-check-input"
+                     type="checkbox"
+                     formControlName="notificaciones"
+                     id="flexSwitchCheckChecked">
+              <label class="form-check-label" for="flexSwitchCheckChecked"> Quero receber notificacoes</label>
+          </div>
+
+       </div>
+     </div>
+
+  <!--Checkbox-->
+      <div class="row mb-3">
+      <label class="col-sm-3 col-form-label"></label>
+       <div class="col-sm-9">
+
+        <div class="form-check">
+            <input class="form-check-input" 
+                   type="checkbox" 
+                   formControlName="condiciones"
+                   id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Termos e Condicoes
+            </label>
+        </div>
+        
+
+       </div>
+     </div>
+
+
+
+
+
+
+<!--Button-->
+<div class="row">
+    <div class="col">
+        <button class="btn btn-primary float-end"
+                type="submit">
+           Guardar
+        </button>
+    </div>
+</div>
+
+
+      
+      
+
+</form>
+
+
+
+<h5>Valor do formulario</h5>
+<pre>{{ miFormulario.value | json }}</pre> 
+
+<h5>Valid</h5>
+<pre>{{ miFormulario.valid }}</pre>
+
+<!-- <h5>Termos</h5>
+<pre>{{ miFormulario.controls?.termos?.errors | json }}</pre>
+
+
+<br>
+<pre>Condicoes: </pre> -->
